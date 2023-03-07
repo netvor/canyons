@@ -5,7 +5,7 @@ print("<html><body><h1>Canyons</h1>")
 
 
 import requests
-mySizes=['M','L']
+mySizes=['L']
 urls=[
  'https://www.canyon.com/on/demandware.store/Sites-RoW-Site/en_CZ/Product-Variation?pid=2708&dwvar_2708_pv_rahmenfarbe=GN&dwvar_2708_pv_rahmengroesse=&quantity=undefined'
 ,'https://www.canyon.com/on/demandware.store/Sites-RoW-Site/en_CZ/Product-Variation?pid=2708&dwvar_2708_pv_rahmenfarbe=GY%2FBK&dwvar_2708_pv_rahmengroesse=&quantity=undefined'
