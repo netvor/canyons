@@ -8,7 +8,7 @@ print("")
 import requests
 from lxml import html
 
-url='https://www.canyon.com/en-cz/gravel-bikes/adventure/grizl/?prefn1=pc_federung_rr&prefv1=No&prefn2=pc_rahmengroesse&prefv2=S&prefn3=pg_weight&prefv3=10%20-%2011%20kg%7C9%20-%2010%20kg&srule=sort_price_ascending&format=ajax&showFilters=false&pmin=25.000%2C00&pmax=66.000%2C00'
+url='https://www.canyon.com/en-cz/gravel-bikes/adventure/grizl/?prefn1=pc_federung_rr&prefv1=No&prefn2=pc_rahmengroesse&prefv2=S&prefn3=pg_weight&prefv3=10%20-%2011%20kg%7C9%20-%2010%20kg&srule=sort_price_ascending&format=ajax&showFilters=false&pmin=25.000%2C00&pmax=69.000%2C00'
 response = requests.get(url)
 page = html.fromstring(response.content)
 
