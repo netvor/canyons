@@ -21,6 +21,7 @@ outpage = E.HTML(
 )))
 table = outpage.xpath('//table')[0]
 table.set('border','1')
+table.text="\n\n"
 
 for div in page.xpath('//li[@class="productGrid__listItem xlt-producttile"]/div'):
   for comparediv in div.xpath('.//div[@class="productTileCompare__wrapper" or @class="productTile__priceMonthly"]'):
@@ -33,6 +34,7 @@ for div in page.xpath('//li[@class="productGrid__listItem xlt-producttile"]/div'
 
 #  print("<tr><td>")
   td = html.Element('td')
+  td.text = "\n\n"
   td.append(div)
   tr = html.Element("tr")
   tr.append(td)
@@ -44,4 +46,8 @@ for div in page.xpath('//li[@class="productGrid__listItem xlt-producttile"]/div'
 
 #print("</table>\n</body></html>")
 
-print(html.tostring(outpage, encoding=str))
+#print(html.tostring(outpage, encoding=str))
+
+outstr = html.tostring(outpage, encoding=str)
+soup = bs(outstr, features='lxml')
+print(soup.prettify())
