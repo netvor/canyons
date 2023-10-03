@@ -16,6 +16,11 @@ for div in page.xpath('//li[@class="productGrid__listItem xlt-producttile"]/div'
   for comparediv in div.xpath('.//div[@class="productTileCompare__wrapper" or @class="productTile__priceMonthly"]'):
     comparediv.getparent().remove(comparediv)
 
+  for a in div.xpath('.//a[@class="productTileDefault__productName link"]'):
+    linkedpage = html.fromstring(requests.get(a.get('href')).content)
+    for sizebox in linkedpage.xpath('//div[@class="productConfiguration__variantType js-productConfigurationVariantType" and normalize-space()="S"]/..'):
+      div.xpath('.//li[@class="productBadges__listItem productBadges__listItem--availability"]')[0].append(sizebox)
+
   print("<tr><td>")
   print(html.tostring(div, encoding=str))
   print("</td></tr>")
