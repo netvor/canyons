@@ -24,13 +24,13 @@ response = requests.get(url)
 page = html.fromstring(response.content)
 
 for div in page.xpath('//li[@class="productGrid__listItem xlt-producttile"]/div'):
-  for comparediv in div.xpath('.//div[@class="productTileCompare__wrapper" or @class="productTile__priceMonthly"]'):
-    comparediv.getparent().remove(comparediv)
-
   for a in div.xpath('.//a[@class="productTileDefault__productName link"]'):
     linkedpage = html.fromstring(requests.get(a.get('href')).content)
     for sizebox in linkedpage.xpath('//div[@class="productConfiguration__variantType js-productConfigurationVariantType" and normalize-space()="S"]/..'):
       div.xpath('.//li[@class="productBadges__listItem productBadges__listItem--availability"]')[0].append(sizebox)
+
+  for badelem in div.xpath('.//*[(self::div and @class="productTileCompare__wrapper" or @class="productTile__priceMonthly") or self::svg]'):
+    badelem.getparent().remove(badelem)
 
 #  print("<tr><td>")
   td = html.Element('td')
